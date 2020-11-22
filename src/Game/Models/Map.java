@@ -68,7 +68,11 @@ public class Map {
      * @return the right block
      */
     public Blocks getBlock(double x, double y) {
-        return Blocks.values()[map[(int) (y / SIZE) + HEIGHT_OFFSET][(int) (x / SIZE) + 1]];
+        try {
+            return Blocks.values()[map[(int) (y / SIZE) + HEIGHT_OFFSET][(int) (x / SIZE) + 1]];
+        } catch (Exception e) {
+            return Blocks.NORMAL;
+        }
     }
 
     /**
