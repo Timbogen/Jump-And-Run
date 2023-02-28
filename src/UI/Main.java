@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     /**
@@ -17,7 +19,8 @@ public class Main extends Application {
     /**
      * Main
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 
@@ -25,12 +28,13 @@ public class Main extends Application {
      * Setup and show the primary stage
      */
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception
+    {
         // Start generating the map
         MapGenerator.generateMap();
 
         // Show the scene
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/UI/main.fxml")));
         primaryStage.setResizable(false);
         primaryStage.setTitle("Jump and Run");
         primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));

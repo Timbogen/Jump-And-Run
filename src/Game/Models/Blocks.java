@@ -39,12 +39,13 @@ public enum Blocks {
     /**
      * True if the block is solid
      */
-    public boolean solid;
+    public final boolean solid;
 
     /**
      * Constructor
      */
-    Blocks(boolean solid, OnDraw draw) {
+    Blocks(boolean solid, OnDraw draw)
+    {
         this.solid = solid;
         this.draw = draw;
     }
@@ -57,7 +58,8 @@ public enum Blocks {
      * @param neighbors of the block
      * @param g         the graphics context
      */
-    public void draw(int m, int n, int[][] neighbors, GraphicsContext g) {
+    public void draw(int m, int n, int[][] neighbors, GraphicsContext g)
+    {
         draw.onDraw(m, n, neighbors, g);
     }
 

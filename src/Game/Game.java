@@ -38,7 +38,8 @@ public class Game {
     /**
      * Constructor
      */
-    public Game(Canvas canvas) {
+    public Game(Canvas canvas)
+    {
         // Get the graphics context
         this.canvas = canvas;
         this.g = canvas.getGraphicsContext2D();
@@ -46,14 +47,15 @@ public class Game {
         // Start the game
         start();
 
-        // Setup the key events
+        // Set up the key events
         setupControls();
     }
 
     /**
      * Start the game
      */
-    private void start() {
+    private void start()
+    {
         // Wait for the map to be generated
         MapGenerator.onFinishedLoading((map -> {
             // Create the player
@@ -61,7 +63,8 @@ public class Game {
 
             // Start drawing the game
             gameTimer = new AnimationTimer() {
-                public void handle(long currentNanoTime) {
+                public void handle(long currentNanoTime)
+                {
                     // Get the time
                     if (lastTime == 0) lastTime = currentNanoTime - 5000;
                     deltaTime = (double) (currentNanoTime - lastTime) / 1e9;
@@ -86,7 +89,8 @@ public class Game {
      *
      * @param g the graphics context
      */
-    private void moveCamera(GraphicsContext g) {
+    private void moveCamera(GraphicsContext g)
+    {
         // Clear the graphics
         g.clearRect(-g.getTransform().getTx(), 0, Main.WIDTH, Main.HEIGHT);
 
@@ -102,28 +106,29 @@ public class Game {
     /**
      * Setup the controls
      */
-    private void setupControls() {
+    private void setupControls()
+    {
         // When the key is pressed
         canvas.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE && player.won) {
                 gameTimer.stop();
                 MapGenerator.generateMap();
-            } else if (e.getCode() == KeyCode.D) {
+            } else if (e.getCode() == KeyCode.D || e.getCode() == KeyCode.RIGHT) {
                 player.accelerate(Player.ACCELERATION);
-            } else if (e.getCode() == KeyCode.A) {
+            } else if (e.getCode() == KeyCode.A || e.getCode() == KeyCode.LEFT) {
                 player.accelerate(-Player.ACCELERATION);
-            } else if (e.getCode() == KeyCode.W) {
+            } else if (e.getCode() == KeyCode.W || e.getCode() == KeyCode.UP) {
                 player.jump();
             }
         });
 
         // When the key is released
         canvas.setOnKeyReleased(e -> {
-            if (e.getCode() == KeyCode.D) {
+            if (e.getCode() == KeyCode.D || e.getCode() == KeyCode.RIGHT) {
                 player.accelerate(0);
-            } else if (e.getCode() == KeyCode.A) {
+            } else if (e.getCode() == KeyCode.A || e.getCode() == KeyCode.LEFT) {
                 player.accelerate(0);
-            } else if (e.getCode() == KeyCode.W) {
+            } else if (e.getCode() == KeyCode.W || e.getCode() == KeyCode.UP) {
                 player.jump();
             }
         });

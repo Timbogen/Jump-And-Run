@@ -59,7 +59,8 @@ public class Player {
     /**
      * Constructor
      */
-    public Player(Map map) {
+    public Player(Map map)
+    {
         this.map = map;
         spawn();
     }
@@ -67,7 +68,8 @@ public class Player {
     /**
      * Spawn the player
      */
-    public void spawn() {
+    public void spawn()
+    {
         radius = (double) Map.SIZE / 2;
         dead = false;
         won = false;
@@ -78,7 +80,8 @@ public class Player {
     /**
      * Start a normal jump
      */
-    public void jump() {
+    public void jump()
+    {
         if (!jumping && map.getBlock(x, y + radius + 1).solid) {
             jumping = true;
             vy = -900;
@@ -90,7 +93,8 @@ public class Player {
      *
      * @param sign the direction
      */
-    public void boostJump(int sign) {
+    public void boostJump(int sign)
+    {
         jumping = true;
         vy = sign * 1300;
     }
@@ -100,21 +104,24 @@ public class Player {
      *
      * @param sign the direction
      */
-    public void boostSide(int sign) {
+    public void boostSide(int sign)
+    {
         vx = sign * 800;
     }
 
     /**
      * Start the acceleration for the player
      */
-    public void accelerate(double acceleration) {
+    public void accelerate(double acceleration)
+    {
         ax = acceleration;
     }
 
     /**
      * Move the player
      */
-    public void move() {
+    public void move()
+    {
         // Check if the player is still alive
         if (dead) return;
 
@@ -154,7 +161,8 @@ public class Player {
     /**
      * Handle a collision
      */
-    private void handleTopCollision() {
+    private void handleTopCollision()
+    {
         // Reset the speed
         vy = 0;
 
@@ -173,7 +181,8 @@ public class Player {
     /**
      * Handle a collision
      */
-    private void handleRightCollision() {
+    private void handleRightCollision()
+    {
         // Reset the speed
         vx = 0;
 
@@ -192,7 +201,8 @@ public class Player {
     /**
      * Handle a collision
      */
-    private void handleBottomCollision() {
+    private void handleBottomCollision()
+    {
         // Reset the speed and the jumping flag
         jumping = false;
         vy = 0;
@@ -219,7 +229,8 @@ public class Player {
     /**
      * Handle a collision
      */
-    private void handleLeftCollision() {
+    private void handleLeftCollision()
+    {
         // Reset the speed
         vx = 0;
 
@@ -241,7 +252,8 @@ public class Player {
      * @param animation true if the player should be animated on death
      * @param respawn   true if the player shall respawn automatically
      */
-    private void die(boolean animation, boolean respawn) {
+    private void die(boolean animation, boolean respawn)
+    {
         // Reset the player's speed and acceleration
         vx = 0;
         vy = 0;
@@ -253,7 +265,8 @@ public class Player {
         if (animation) {
             new AnimationTimer() {
                 @Override
-                public void handle(long l) {
+                public void handle(long l)
+                {
                     if (radius < Main.WIDTH) {
                         radius += 10;
                     } else {
@@ -272,7 +285,8 @@ public class Player {
      *
      * @param g the graphics context
      */
-    public void drawPlayer(GraphicsContext g) {
+    public void drawPlayer(GraphicsContext g)
+    {
         // Draw the player
         g.setFill(Color.DARKORANGE);
         g.fillOval(x - radius, (int) (y - radius), 2 * radius, 2 * radius);
