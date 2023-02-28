@@ -57,8 +57,7 @@ public enum Blocks {
      * @param neighbors of the block
      * @param g         the graphics context
      */
-    public void draw(int m, int n, int[][] neighbors, GraphicsContext g)
-    {
+    public void draw(int m, int n, int[][] neighbors, GraphicsContext g) {
         draw.onDraw(m, n, neighbors, g);
     }
 

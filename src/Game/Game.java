@@ -61,8 +61,7 @@ public class Game {
 
             // Start drawing the game
             gameTimer = new AnimationTimer() {
-                public void handle(long currentNanoTime)
-                {
+                public void handle(long currentNanoTime) {
                     // Get the time
                     if (lastTime == 0) lastTime = currentNanoTime - 5000;
                     deltaTime = (double) (currentNanoTime - lastTime) / 1e9;

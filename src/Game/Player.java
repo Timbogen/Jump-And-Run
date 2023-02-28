@@ -100,16 +100,14 @@ public class Player {
      *
      * @param sign the direction
      */
-    public void boostSide(int sign)
-    {
+    public void boostSide(int sign) {
         vx = sign * 800;
     }
 
     /**
      * Start the acceleration for the player
      */
-    public void accelerate(double acceleration)
-    {
+    public void accelerate(double acceleration) {
         ax = acceleration;
     }
 
@@ -255,8 +253,7 @@ public class Player {
         if (animation) {
             new AnimationTimer() {
                 @Override
-                public void handle(long l)
-                {
+                public void handle(long l) {
                     if (radius < Main.WIDTH) {
                         radius += 10;
                     } else {
