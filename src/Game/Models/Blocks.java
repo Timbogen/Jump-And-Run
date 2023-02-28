@@ -44,8 +44,7 @@ public enum Blocks {
     /**
      * Constructor
      */
-    Blocks(boolean solid, OnDraw draw)
-    {
+    Blocks(boolean solid, OnDraw draw) {
         this.solid = solid;
         this.draw = draw;
     }

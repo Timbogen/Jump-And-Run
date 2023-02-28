@@ -16,8 +16,7 @@ public class Controller {
      * Start the game
      */
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
         canvas.setFocusTraversable(true);
         new Game(canvas);
     }

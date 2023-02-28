@@ -28,8 +28,7 @@ public class Main extends Application {
      * Setup and show the primary stage
      */
     @Override
-    public void start(Stage primaryStage) throws Exception
-    {
+    public void start(Stage primaryStage) throws Exception {
         // Start generating the map
         MapGenerator.generateMap();
 

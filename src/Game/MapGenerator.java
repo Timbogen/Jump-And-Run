@@ -43,8 +43,7 @@ public class MapGenerator {
     /**
      * Start generating the map in a new thread
      */
-    public static void generateMap()
-    {
+    public static void generateMap() {
         new Thread(() -> {
             // Initialize the map
             map = new Map(random(300, 500), HEIGHT);
@@ -65,8 +64,7 @@ public class MapGenerator {
     /**
      * Set the border of the map
      */
-    private static void setBorder()
-    {
+    private static void setBorder() {
         for (int m = 0; m < HEIGHT; m++) {
             map.map[m][0] = Blocks.NORMAL.ordinal();
             map.map[m][map.width - 1] = Blocks.NORMAL.ordinal();
@@ -80,8 +78,7 @@ public class MapGenerator {
     /**
      * Set the start platforms
      */
-    private static void setStart()
-    {
+    private static void setStart() {
         map.x = (MARGIN + 3) * Map.SIZE;
         map.y = 50;
         map.finish = (map.width - MARGIN - 3) * Map.SIZE;
@@ -101,8 +98,7 @@ public class MapGenerator {
     /**
      * Generate the main part of the map
      */
-    private static void generateMain()
-    {
+    private static void generateMain() {
         // The parameters
         int maxHeight = MAX_HEIGHT;
         int currentHeight = lastHeight - maxHeight;
@@ -146,8 +142,7 @@ public class MapGenerator {
      * @param height of the platform
      * @return the length of the platform
      */
-    private static int generatePlatform(int type, int start, int height)
-    {
+    private static int generatePlatform(int type, int start, int height) {
         // Generate the length
         int length = random(3, 10);
         while (start + length > map.width - MARGIN - 6) {
@@ -173,8 +168,7 @@ public class MapGenerator {
      *
      * @param action to be executed
      */
-    public static void onFinishedLoading(OnFinishedLoading action)
-    {
+    public static void onFinishedLoading(OnFinishedLoading action) {
         if (loaded) {
             action.onFinishedLoading(map);
         }

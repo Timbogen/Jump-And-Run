@@ -38,8 +38,7 @@ public class Game {
     /**
      * Constructor
      */
-    public Game(Canvas canvas)
-    {
+    public Game(Canvas canvas) {
         // Get the graphics context
         this.canvas = canvas;
         this.g = canvas.getGraphicsContext2D();
@@ -54,8 +53,7 @@ public class Game {
     /**
      * Start the game
      */
-    private void start()
-    {
+    private void start() {
         // Wait for the map to be generated
         MapGenerator.onFinishedLoading((map -> {
             // Create the player
@@ -89,8 +87,7 @@ public class Game {
      *
      * @param g the graphics context
      */
-    private void moveCamera(GraphicsContext g)
-    {
+    private void moveCamera(GraphicsContext g) {
         // Clear the graphics
         g.clearRect(-g.getTransform().getTx(), 0, Main.WIDTH, Main.HEIGHT);
 
@@ -106,8 +103,7 @@ public class Game {
     /**
      * Setup the controls
      */
-    private void setupControls()
-    {
+    private void setupControls() {
         // When the key is pressed
         canvas.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE && player.won) {
