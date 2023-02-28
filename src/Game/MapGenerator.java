@@ -182,7 +182,8 @@ public class MapGenerator {
      * @param max value
      * @return the random number
      */
-    private static int random(int min, int max) {
+    private static int random(int min, int max)
+    {
         return random.nextInt(max - min + 1) + min;
     }
 

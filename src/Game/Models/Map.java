@@ -83,10 +83,6 @@ public class Map {
      * @return a matrix containing the neighbors
      */
     private int[][] getNeighbors(int m, int n) {
-        return new int[][]{
-                {map[m - 1][n - 1], map[m - 1][n], map[m - 1][n + 1]},
-                {map[m][n - 1], map[m][n], map[m][n + 1]},
-                {map[m + 1][n - 1], map[m + 1][n], map[m + 1][n + 1]}
-        };
+        return new int[][]{{map[m - 1][n - 1], map[m - 1][n], map[m - 1][n + 1]}, {map[m][n - 1], map[m][n], map[m][n + 1]}, {map[m + 1][n - 1], map[m + 1][n], map[m + 1][n + 1]}};
     }
 }
